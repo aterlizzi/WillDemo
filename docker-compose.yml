@@ -1,0 +1,20 @@
+services:
+    swift_repl:
+        image: registry.gitlab.com/passivelogic/physics/qortexreplenvironment/swift-repl:latest
+        pull_policy: always
+    
+    qortex:
+        pull_policy: always
+        build: 
+          context: .
+          ssh:
+            - default
+        privileged: true
+        # We cannot use the default entrypoint because that entrypoint sets up the Docker Daemon, we want to use the host's.
+        entrypoint: ["/usr/bin/WillDemo", "--seccomp-profile-path", "/root/seccomp_profile.json", "--site--path", "/root/millrock.json"]
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock   # share the host socket, mimicks dind without the authentication
+            # This fixes a nasty bug where the third level of container inception references the host instead of the second layer of docker container. Yikes.
+            - /tmp:/tmp
+        ports:
+        - '8008:8008'

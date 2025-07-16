@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [
+                "--seccomp-profile-path",
+                "/Users/aidenterlizzi/Desktop/PassiveLogicRepositories/QortexServer/Resources/docker/seccomp_profile.json",
+                "--site-path",
+                "/Users/aidenterlizzi/Desktop/WillDemo/Resources/millrock.json"
+            ],
+            "cwd": "${workspaceFolder:WillDemo}",
+            "name": "Debug WillDemo",
+            "program": "${workspaceFolder:WillDemo}/.build/debug/WillDemo",
+            "preLaunchTask": "swift: Build Debug WillDemo"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:WillDemo}",
+            "name": "Release WillDemo",
+            "program": "${workspaceFolder:WillDemo}/.build/release/WillDemo",
+            "preLaunchTask": "swift: Build Release WillDemo"
+        }
+    ]
+}

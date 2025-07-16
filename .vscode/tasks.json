@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "swift",
+            "args": [
+                "run",
+                "WillDemo",
+                "--seccomp-profile-path",
+                "/Users/aidenterlizzi/Desktop/PassiveLogicRepositories/QortexServer/Resources/docker/seccomp_profile.json",
+                "--site-path",
+                "/Users/aidenterlizzi/Desktop/WillDemo/Resources/millrock.json"
+            ],
+            "env": {
+                "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer",
+                "LOG_LEVEL": "debug",
+                "PL_DB_HOST": "localhost",
+                "PL_DB_PORT": "5433",
+                "PL_ADMIN_DB": "passivelogic-admin",
+                "PL_DB_NAME": "passivelogic",
+                "PL_DB_PASSWORD": "passivelogic",
+                "PL_DB_USER": "passivelogic",
+                "PL_OPEN_ROUTER_KEY": "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",
+            },
+            "cwd": "/Users/aidenterlizzi/Desktop/WillDemo",
+            "disableTaskQueue": true,
+            "group": "test",
+            "problemMatcher": [],
+            "label": "swift: Run",
+            "detail": "swift run --seccomp-profile-path /Users/aidenterlizzi/Desktop/PassiveLogicRepositories/QortexREPLEnvironment/seccomp_profile.json WillDemo"
+        },
+        {
+            "label": "pl-swiftformat",
+            "type": "shell",
+            "command": "pl-swiftformat",
+            "args": [
+                "."
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+    ]
+}
