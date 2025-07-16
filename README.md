@@ -14,7 +14,7 @@ swift run WillDemo --seccomp-profile-path $(pwd)/Resources/docker/seccomp_profil
 3. Start the client
 
 ```bash
-cd client
+npm i 
 ```
 
 ```bash
