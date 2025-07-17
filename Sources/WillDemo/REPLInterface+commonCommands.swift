@@ -10,12 +10,18 @@ import struct QuantumInterface.RootedQuantumGraphEncoder
 extension REPLInterface {
     /// Import QStack packages needed by QortexInferencing.
     private func importPackages() async throws {
-        _ = try await self.sendCommand(.swift("import Foundation"))
-        _ = try await self.sendCommand(.swift("import QuantumInterface"))
-        _ = try await self.sendCommand(.swift("import IntrospectionKit"))
-        _ = try await self.sendCommand(.swift("import QSCIntrospectionKitDriver"))
-        _ = try await self.sendCommand(.swift("import OrderedCollections"))
-        _ = try await self.sendCommand(.swift("import AnyCodableREPL"))
+        let res = try await self.sendCommand(.swift("import Foundation"))
+        let res2 = try await self.sendCommand(.swift("import QuantumInterface"))
+        let res3 = try await self.sendCommand(.swift("import IntrospectionKit"))
+        let res4 = try await self.sendCommand(.swift("import QSCIntrospectionKitDriver"))
+        let res5 = try await self.sendCommand(.swift("import OrderedCollections"))
+        let res6 = try await self.sendCommand(.swift("import AnyCodableREPL"))
+        print(res)
+        print(res2)
+        print(res3)
+        print(res4)
+        print(res5)
+        print(res6)
     }
 
     /// Injects a site.json file into the REPL container and loads the site in that REPL.
