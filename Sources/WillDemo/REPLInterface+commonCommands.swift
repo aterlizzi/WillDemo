@@ -41,11 +41,12 @@ extension REPLInterface {
             let slowSite = try RootedQuantumGraphDecoder(options: [.ignoreState]).decode(withRoot: Quantum.Site.self, from: siteData)
             let \(self.siteVarName) = try slowSite.withHyperGraph()
             """
-        _ = try await self.sendCommand(.swift(loadDataCmd), timeout: .seconds(240))
+        let res = try await self.sendCommand(.swift(loadDataCmd), timeout: .seconds(240))
+        print(res)
     }
 
     public func loadComputedAttributes() async throws {
-        _ = try await self.sendCommand(
+        let res = try await self.sendCommand(
             .swift(
                 """
                 public extension Quantum.Building {
@@ -211,5 +212,6 @@ extension REPLInterface {
             ),
             timeout: .seconds(240)
         )
+        print(res)
     }
 }
