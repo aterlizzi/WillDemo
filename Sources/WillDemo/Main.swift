@@ -84,6 +84,9 @@ actor SomeActor {
                     if case let .printout(response) = res.first {
                         print(response)
                         try await outbound.write(.text(response))
+                    } else if case let .function(response) = res.first {
+                        print(response)
+                        try await outbound.write(.text(response))
                     } else {
                         try await outbound.write(.text(""))
                     }
